@@ -10,13 +10,19 @@ import { Rutas } from './Rutas/app.rutas';
 import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { PaginaNoEncontradaComponent } from './componentes/pagina-no-encontrada/pagina-no-encontrada.component';
+import { NavBarLoginComponent } from './componentes/nav-bar-login/nav-bar-login.component';
+import { NavBarGeneralComponent } from './componentes/nav-bar-general/nav-bar-general.component';
+import { ListadoEmpleadosComponent } from './componentes/listado-empleados/listado-empleados.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    PaginaNoEncontradaComponent
+    PaginaNoEncontradaComponent,
+    NavBarLoginComponent,
+    NavBarGeneralComponent,
+    ListadoEmpleadosComponent
   ],
   imports: [
     BrowserModule,
