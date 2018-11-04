@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
+import {ServicioEmpleadoService } from './../../servicios/servicio-empleado.service';
+import {Empleado} from '../../clases/empleado';
 
 @Component({
   selector: 'app-listado-empleados',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoEmpleadosComponent implements OnInit {
 
-  constructor() { }
+  @Output() seBorroEmpleadoEnviarAListado: EventEmitter<any>= new EventEmitter<any>(); 
+  @Input()
+  
+  public listado: Array<any>;
+  public unaEmpleadoParaCompartir:Empleado;
+  public miServicioEmpleado:ServicioEmpleadoService;
+
+  constructor( servicioEmpleado:ServicioEmpleadoService ) { 
+    this.miServicioEmpleado = servicioEmpleado;
+   }
 
   ngOnInit() {
   }
+
+  public tomarEmpleadoBorradoEnListadoEmpleado(unId: string)
+  {
+//el evento emitido por el componente borrar-empleado es capturado por tomarEmpleadoBorradoEnListadoEmpleado que
+// a su vez emite otro evento seBorroEmpleadoEnviarAListado que va a ser capturado en el evento Listado
+    this.seBorroEmpleadoEnviarAListado.emit(unId); 
+  }  
 
 }

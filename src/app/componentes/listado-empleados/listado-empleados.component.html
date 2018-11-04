@@ -1,3 +1,48 @@
 <app-nav-bar-general></app-nav-bar-general>
 
-Este es el listado
+
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  </head>
+<body>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+  <th>Nombre</th>
+  <th>Legajo</th>
+  <th>Tipo</th>
+
+  <th>Clave</th>
+  <th>Foto</th>
+  <th>Eliminar</th>
+</tr>
+</thead>
+<tbody>
+  <tr *ngFor="let empleado of listado">         
+    <td>{{empleado.nombre}} </td>
+    <td>{{empleado.legajo}} </td> 
+    <td *ngIf="empleado.tipo == 'jefe'"><p>{{empleado.tipo}}</p></td>
+    <td *ngIf="empleado.tipo == 'operario'"><p>{{empleado.tipo}}</p></td>
+    
+    <td>{{empleado.clave}} </td>
+    <td><img class='fotoGrilla' width="60" height="60" class="img-circle" src="http://localhost:80/apirest-empresa/fotos/{{empleado.foto}}" /></td>
+    <!--td><button class='btn btn-danger' name='Borrar' (click)="borrarEmpleado(empleado.id)">   
+        <span class='glyphicon glyphicon-fire'>&nbsp;</span>Borrar</button></td-->    
+
+    <!-- tomarEmpleadoBorradoEnListadoEmpleado captura el evento que viene del componente borrar-empleado-->          
+   
+  </tr>   
+    </tbody>
+</table>
+
+
+</body>
+</html>
